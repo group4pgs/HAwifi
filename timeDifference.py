@@ -28,7 +28,7 @@ def timeDifference(now, sunsetTime):
 
 def calculateDifference():
 	now = datetime.datetime.now()
-	sunset = json.loads(urllib.request.urlopen("https://api.sunrise-sunset.org/json?lat=12.9716600&lng=77.5946400&date=today&formatted=0").read())
+	sunset = json.loads(urllib.request.urlopen("https://api.sunrise-sunset.org/json?lat=12.9716600&lng=77.5946400&date=today&formatted=0").read().decode('utf-8'))
 	sunsetTime = sunset['results']['sunset']
 	sunsetTime = sunsetTime.replace('-',' ').replace('T',' ')
 	sunsetTime = sunsetTime[0:-6]
@@ -37,4 +37,3 @@ def calculateDifference():
 	sunsetTime=sunsetTime.astimezone()
 	delta = timeDifference(now, sunsetTime)
 	return delta
-

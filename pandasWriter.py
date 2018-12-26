@@ -10,4 +10,4 @@ def write_to_csv(value):
 
 	df.to_csv('value_file.csv')
 
-write_to_csv(34)
+
